@@ -2,6 +2,10 @@ package com.oybo.springboot.app.producto.service.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.oybo.springboot.app.producto.service.dao.IProductoDAO;
 import com.oybo.springboot.app.producto.service.model.Producto;
 
 /**
@@ -10,7 +14,11 @@ import com.oybo.springboot.app.producto.service.model.Producto;
  * @author oscar
  *
  */
+@Service
 public class ProductoServiceImpl implements IProductoService {
+	
+	@Autowired
+	private IProductoDAO productoDAO;
 
 	/**
 	 * Metodo que obtiene el
@@ -22,8 +30,11 @@ public class ProductoServiceImpl implements IProductoService {
 	 */
 	@Override
 	public Producto getProducto(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Producto producto = new Producto();
+		
+		producto = productoDAO.getProducto(id);
+		
+		return producto;
 	}
 
 	/**
