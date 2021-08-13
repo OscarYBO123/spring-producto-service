@@ -1,0 +1,12 @@
+use bd_tiend;
+
+create table productos(
+id_producto int not null auto_increment,
+nombre_producto varchar(50),
+descripcion_producto varchar(250),
+precio double,
+constraint pk1 primary key (id_producto));
+
+select * from productos;
+
+insert into productos (nombre_producto, descripcion_producto, precio) values ('PlaySatiton 5', 'Consola de ultima generacion con 860 GB', 13999);
